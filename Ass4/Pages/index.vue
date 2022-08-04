@@ -1,3 +1,4 @@
+
 <template>
 <div>
   <nav class="flex items-center justify-between flex-wrap bg-blue-700 p-6">
@@ -13,9 +14,13 @@
     </nav>
 
 
-    <div class="grid grid-cols-5 gap-5 mt-14 m-3 p-6 border-2 border-black">
-        <div
-            class="p-6 max-w-sm rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div class="border-2 border-black m-3 p-6 ">
+        <div>
+            <h1 class="font-semibold text-center text-2xl text-amber-400">Dashboard</h1>
+           
+        </div>        
+       <div class="grid grid-cols-5 gap-5">
+            <div class="p-6 max-w-sm rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
              <article class="font-medium text-black ">
                <p>Product Name:Nike shoes</p>
                <p>Price 20000</p>
@@ -23,6 +28,7 @@
                <p>color:Black</p>
             </article>  
         </div>
+        
 
         <div
             class="p-6 max-w-sm rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -115,11 +121,13 @@
             </article> 
         </div>
         </div>
+        </div>
+        
+
 
         <div class="  grid grid-cols-2  ">
-          <div class="border-black  border-2 m-8 p-8">
-           
-        <form @submit="formSubmit" class="bg-gray-100 border-blue-400 rounded-lg border-2 px-12">
+          <div class="border-black  border-2 m-8 p-8">  
+            <form @submit="formSubmit" class="bg-gray-100 border-blue-400 rounded-lg border-2 px-12">
             <table>
                 <h2 class="text-teal-900 text-xl font-bold pt-6">“Add Product” Form</h2>
                 <hr />
@@ -145,6 +153,7 @@
         </form>
         </div>
         <div class="border-black  border-2 m-8 p-8">
+            
         <table class="list">
             <tr>
                 <!-- <th class="px-4 border-black rounded-lg border-2">id</th> -->
@@ -172,6 +181,36 @@
         </table>
         </div>
     </div>
+    <div class="border-black  border-2 m-8 p-8">
+          <h1 class="font-semibold text-center text-2xl text-amber-400"> Search the Product based on added categories</h1>
+            <div>
+            <label class="font-bold text-xl mr-16" for="searchpro">Search Product</label>
+            <input @keyup="userFindByAddress(userAddress)" v-model="this.userAddress" class=" border-2 border-black " type="text" name="searchpro" id="searchpro">
+        </div>
+          <hr class="border-1 border-black">
+        <!-- 2nd table  -->
+        <table border="2" class="border-2  mr-60 ml-32 p-6 border-solid border-x-black rounded-md mt-8 ">
+            <tr>
+                 <th class="px-4 border-blue-400 rounded-lg border-4">ProductName</th>
+                <th class="px-4 border-blue-400 rounded-lg border-4">Price</th>
+                <th class="px-4 border-blue-400 rounded-lg border-4">Category</th>
+                <th class="px-4 border-blue-400 rounded-lg border-4">Color</th>
+               
+            </tr>
+            <tr v-for="(prod,i) in userFound" :key="prod">
+                <td class="px-4 border-blue-400 rounded-lg border-4">{{item.ProductName}}</td>
+                <td class="px-4 border-blue-400 rounded-lg border-4">{{item.Price}}</td>
+                <td class="px-4 border-blue-400 rounded-lg border-4">{{item.Category}}</td>
+                <td class="px-4 border-blue-400 rounded-lg border-4">{{item.Color}}</td>
+                
+            </tr>
+        </table>
+    
+
+
+
+
+    </div>
 
 
 
@@ -185,6 +224,7 @@ export default {
             isEdit:false,
             indexEdit:-1,
             users: [],
+            userAddress:'',
             user: {
                 ProductName: '',
                 Price: '',
@@ -196,6 +236,11 @@ export default {
     methods: {
         formSubmit(event) {
             event.preventDefault();
+            if(this.user.ProductName==""||this.user.ProductName==null||this.user.Price==""|| this.user.Price==null|| this.user.Category==""||this.user.Category==null|| this.user.Color==""||this.user.Color==null)
+            {alert("please fill all the fields");
+            this.onReset();
+            
+            }else{console.log("Hi");}
             if(this.isEdit==true){
                 this.users[this.indexEdit]=this.user;
                 this.isEdit=false;
@@ -229,9 +274,13 @@ export default {
             this.user.Color=this.users[index].Color;
             this.isEdit=true;
             this.indexEdit=index;
-        }
+        },
+    
+         
     }
 }
-</script>
-
+       
+        
     
+
+</script>
