@@ -1,4 +1,3 @@
-
 <template>
 <div>
   <nav class="flex items-center justify-between flex-wrap bg-blue-700 p-6">
@@ -182,37 +181,12 @@
         </div>
     </div>
     <div class="border-black  border-2 m-8 p-8">
-          <h1 class="font-semibold text-center text-2xl text-amber-400"> Search the Product based on added categories</h1>
+          <h1 class="font-semibold text-center text-2xl text-amber-400"> Filter the Product based on added categories</h1>
             <div>
-            <label class="font-bold text-xl mr-16" for="searchpro">Search Product</label>
-            <input @keyup="userFindByAddress(userAddress)" v-model="this.userAddress" class=" border-2 border-black " type="text" name="searchpro" id="searchpro">
+            <label class="font-bold text-xl mr-16" for="searchpro">Filter the Product</label>
+            <input type="text" id="Productname" name="Productname" class="border-black  border">
         </div>
-          <hr class="border-1 border-black">
-        <!-- 2nd table  -->
-        <table border="2" class="border-2  mr-60 ml-32 p-6 border-solid border-x-black rounded-md mt-8 ">
-            <tr>
-                 <th class="px-4 border-blue-400 rounded-lg border-4">ProductName</th>
-                <th class="px-4 border-blue-400 rounded-lg border-4">Price</th>
-                <th class="px-4 border-blue-400 rounded-lg border-4">Category</th>
-                <th class="px-4 border-blue-400 rounded-lg border-4">Color</th>
-               
-            </tr>
-            <tr v-for="(prod,i) in userFound" :key="prod">
-                <td class="px-4 border-blue-400 rounded-lg border-4">{{item.ProductName}}</td>
-                <td class="px-4 border-blue-400 rounded-lg border-4">{{item.Price}}</td>
-                <td class="px-4 border-blue-400 rounded-lg border-4">{{item.Category}}</td>
-                <td class="px-4 border-blue-400 rounded-lg border-4">{{item.Color}}</td>
-                
-            </tr>
-        </table>
-    
-
-
-
-
     </div>
-
-
 
     </div>
 
@@ -282,5 +256,4 @@ export default {
        
         
     
-
 </script>
