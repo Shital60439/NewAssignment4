@@ -156,7 +156,7 @@
         <table class="list">
             <tr>
                 <!-- <th class="px-4 border-black rounded-lg border-2">id</th> -->
-                <th class="px-4 border-blue-400 rounded-lg border-4">ProductName</th>
+                <th class="px-4 border-blue-400 rounded-lg border-4">ProductName..</th>
                 <th class="px-4 border-blue-400 rounded-lg border-4">Price</th>
                 <th class="px-4 border-blue-400 rounded-lg border-4">Category</th>
                 <th class="px-4 border-blue-400 rounded-lg border-4">Color</th>
